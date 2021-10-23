@@ -59,8 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
         chatLayout = findViewById(R.id.chatLayout);
 
-        ImageView sendBtn = findViewById(R.id.sendBtn);
-        sendBtn.setOnClickListener(this::sendMessage);
 
         queryEditText = findViewById(R.id.queryEditText);
         queryEditText.setOnKeyListener((view, keyCode, event) -> {
@@ -68,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (keyCode) {
                     case KeyEvent.KEYCODE_DPAD_CENTER:
                     case KeyEvent.KEYCODE_ENTER:
-                        sendMessage(sendBtn);
+                        sendMessage();
                         return true;
                     default:
                         break;
@@ -101,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void sendMessage(View view) {
+    private void sendMessage() {
         String msg = queryEditText.getText().toString();
         if (msg.trim().isEmpty()) {
             Toast.makeText(MainActivity.this, "Please enter your query!", Toast.LENGTH_LONG).show();
