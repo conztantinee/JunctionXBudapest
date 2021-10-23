@@ -16,6 +16,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.api.client.json.JsonString;
 import com.google.api.gax.core.FixedCredentialsProvider;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.auth.oauth2.ServiceAccountCredentials;
@@ -26,7 +27,12 @@ import com.google.cloud.dialogflow.v2.SessionsClient;
 import com.google.cloud.dialogflow.v2.SessionsSettings;
 import com.google.cloud.dialogflow.v2.TextInput;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private String uuid = UUID.randomUUID().toString();
     private LinearLayout chatLayout;
     private EditText queryEditText;
+    ArrayList options= new ArrayList();
 
    ;
 
@@ -119,6 +126,19 @@ public class MainActivity extends AppCompatActivity {
         if (response != null) {
             // process aiResponse here
             String botReply = response.getQueryResult().getFulfillmentText();
+
+                if(response.getQueryResult().getFulfillmentMessagesCount()>=0) {
+                    for (int i = 0; i < response.getQueryResult().getFulfillmentMessagesCount(); i++)
+                        options.add(i,response.getQueryResult().getFulfillmentMessages(1).getPayload().
+                                getFieldsMap().get("choices").getListValue().getValues(i).getStringValue());
+                }
+
+            /*List<String> list = new ArrayList<String>();
+            JSONArray array = new JSONArray(response.getField());
+            for(int i = 0 ; i < array.length() ; i++){
+                list.add(array.getJSONObject(i).getString("interestKey"));
+            }*/
+            Log.d(TAG,"choices: " + response.getQueryResult());
             Log.d(TAG, "V2 Bot Reply: " + botReply);
             showTextView(botReply, BOT);
         } else {
