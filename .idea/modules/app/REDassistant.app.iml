@@ -4,7 +4,7 @@
     <facet type="android-gradle" name="Android-Gradle">
       <configuration>
         <option name="GRADLE_PROJECT_PATH" value=":app" />
-        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" />
+        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" value="7.0.3" />
         <option name="LAST_KNOWN_AGP_VERSION" value="7.0.3" />
       </configuration>
     </facet>
@@ -51,7 +51,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-library:1.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.squareup:javawriter:2.1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: javax.inject:javax.inject:1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.google.code.findbugs:jsr305:2.0.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.squareup.okio:okio:1.6.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.ext:junit:1.1.2@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.espresso:espresso-core:3.3.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:runner:1.3.0@aar" level="project" />
@@ -63,6 +63,49 @@
     <orderEntry type="library" name="Gradle: androidx.arch.core:core-common:2.1.0" level="project" />
     <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.1.0" level="project" />
     <orderEntry type="library" name="Gradle: androidx.constraintlayout:constraintlayout-solver:2.0.4" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.cloud:google-cloud-dialogflow:4.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: io.grpc:grpc-okhttp:1.40.1" level="project" />
+    <orderEntry type="library" name="Gradle: io.grpc:grpc-core:1.40.1" level="project" />
+    <orderEntry type="library" name="Gradle: io.grpc:grpc-api:1.40.1" level="project" />
+    <orderEntry type="library" name="Gradle: io.grpc:grpc-context:1.40.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.api.grpc:proto-google-cloud-dialogflow-v2:4.1.6" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.api.grpc:proto-google-cloud-dialogflow-v2beta1:0.99.6" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.code.findbugs:jsr305:3.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.guava:guava:30.1.1-jre" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.guava:failureaccess:1.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava" level="project" />
+    <orderEntry type="library" name="Gradle: org.checkerframework:checker-qual:3.8.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.errorprone:error_prone_annotations:2.9.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.j2objc:j2objc-annotations:1.3" level="project" />
+    <orderEntry type="library" name="Gradle: io.grpc:grpc-stub:1.40.1" level="project" />
+    <orderEntry type="library" name="Gradle: io.grpc:grpc-protobuf:1.40.1" level="project" />
+    <orderEntry type="library" name="Gradle: io.grpc:grpc-protobuf-lite:1.40.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.api:api-common:2.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: javax.annotation:javax.annotation-api:1.3.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.auto.value:auto-value-annotations:1.8.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.protobuf:protobuf-java:3.17.3" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.api.grpc:proto-google-common-protos:2.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.api:gax:2.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.auth:google-auth-library-oauth2-http:1.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.http-client:google-http-client:1.40.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpclient:4.5.13" level="project" />
+    <orderEntry type="library" name="Gradle: commons-logging:commons-logging:1.2" level="project" />
+    <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.15" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpcore:4.4.14" level="project" />
+    <orderEntry type="library" name="Gradle: io.opencensus:opencensus-contrib-http-util:0.28.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.http-client:google-http-client-gson:1.40.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.8" level="project" />
+    <orderEntry type="library" name="Gradle: io.opencensus:opencensus-api:0.28.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.api:gax-grpc:2.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: io.grpc:grpc-auth:1.40.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.auth:google-auth-library-credentials:1.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: io.grpc:grpc-netty-shaded:1.40.1" level="project" />
+    <orderEntry type="library" name="Gradle: io.grpc:grpc-alts:1.40.1" level="project" />
+    <orderEntry type="library" name="Gradle: io.grpc:grpc-grpclb:1.40.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.conscrypt:conscrypt-openjdk-uber:2.5.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.threeten:threetenbp:1.5.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.okhttp:okhttp:2.7.4" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.17.5" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.material:material:1.3.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.constraintlayout:constraintlayout:2.0.4@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat:1.2.0@aar" level="project" />

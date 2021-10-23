@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.api:api-common:2.0.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/com.google.api/api-common/2.0.2/d640515a0216e2143ad08fa7dece2653db4cc030/api-common-2.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/com.google.api/api-common/2.0.2/238e16a531e11e7d5a9beff67f1b1a79890fad4b/api-common-2.0.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/com.google.api/api-common/2.0.2/52884c29ec7b67f5884b79d325dd06b3aed94180/api-common-2.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
