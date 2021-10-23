@@ -10,7 +10,9 @@
         android:id="@+id/mytoolbar"
         layout="@layout/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="50dp"
+        android:visibility="visible"
+        tools:visibility="visible" />
 
     <RelativeLayout
         android:id="@+id/inputLayout"
@@ -33,29 +35,25 @@
         <!--android:visibility="visible" />-->
 
 
-
-
-
-
         <EditText
             android:id="@+id/queryEditText"
             android:layout_width="match_parent"
             android:layout_height="46dp"
             android:layout_alignParentStart="true"
 
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="12dp"
             android:background="@drawable/rectangle"
             android:fontFamily="@font/poppins"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
             android:hint="Write something..."
             android:imeOptions="actionSend"
             android:inputType="text"
 
-            android:paddingRight="15dp"
             android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:textSize="16sp"
-            tools:ignore="TouchTargetSizeCheck"  />
+            tools:ignore="TouchTargetSizeCheck" />
 
     </RelativeLayout>
 

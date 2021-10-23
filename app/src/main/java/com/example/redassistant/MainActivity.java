@@ -119,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
         if (response != null) {
             // process aiResponse here
             String botReply = response.getQueryResult().getFulfillmentText();
+            System.out.println(response);
             Log.d(TAG, "V2 Bot Reply: " + botReply);
             showTextView(botReply, BOT);
         } else {
