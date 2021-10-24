@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -33,6 +34,7 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,13 +42,16 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final int USER = 10001;
     private static final int BOT = 10002;
+    private static final int OPTIONS = 10003;
+    int payload=0;
+
 
     private String uuid = UUID.randomUUID().toString();
     private LinearLayout chatLayout;
     private EditText queryEditText;
     ArrayList options= new ArrayList();
 
-   ;
+    ;
 
     // Java V2
     private SessionsClient sessionsClient;
@@ -87,9 +92,17 @@ public class MainActivity extends AppCompatActivity {
 
         // Java V2
         initV2Chatbot();
+
+
+
+
+
     }
 
-
+//    public void buttonClicked(View view){
+//        String text = view.getContext().getText(0).toString();
+//        Log.d(TAG,"button clicked"+text);
+//    }
 
     private void initV2Chatbot() {
         try {
@@ -123,16 +136,25 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void callbackV2(DetectIntentResponse response) {
-        if (response != null) {
+        payload=0;
+        int temp=0;
+        if(response.getQueryResult().getFulfillmentMessagesCount()>1){
+         payload =Integer.parseInt(response.getQueryResult().getFulfillmentMessages(1).getPayload().
+                getFieldsMap().get("numbers").getListValue().getValues(0).getStringValue());
+        temp=1;}
+        if (response != null  ) {
             // process aiResponse here
+
+
             String botReply = response.getQueryResult().getFulfillmentText();
-
-                if(response.getQueryResult().getFulfillmentMessagesCount()>=0) {
-                    for (int i = 0; i < response.getQueryResult().getFulfillmentMessagesCount(); i++)
-                        options.add(i,response.getQueryResult().getFulfillmentMessages(1).getPayload().
-                                getFieldsMap().get("choices").getListValue().getValues(i).getStringValue());
-                }
-
+                 if(payload!=0) {
+                     if (response.getQueryResult().getFulfillmentMessagesCount() > 1) {
+                         for (int i = 0; i < Integer.parseInt(response.getQueryResult().getFulfillmentMessages(temp).getPayload().
+                                 getFieldsMap().get("numbers").getListValue().getValues(0).getStringValue()); i++)
+                             options.add(i, response.getQueryResult().getFulfillmentMessages(1).getPayload().
+                                     getFieldsMap().get("choices").getListValue().getValues(i).getStringValue());
+                     }
+                 }
             /*List<String> list = new ArrayList<String>();
             JSONArray array = new JSONArray(response.getField());
             for(int i = 0 ; i < array.length() ; i++){
@@ -141,6 +163,14 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG,"choices: " + response.getQueryResult());
             Log.d(TAG, "V2 Bot Reply: " + botReply);
             showTextView(botReply, BOT);
+            if(payload!=0) {
+                for (int i = 0; i < Integer.parseInt(response.getQueryResult().getFulfillmentMessages(temp).getPayload().
+                        getFieldsMap().get("numbers").getListValue().getValues(0).getStringValue()); i++)
+                    showTextView(options.get(i).toString(), OPTIONS);
+            }
+
+
+
         } else {
             Log.d(TAG, "Bot Reply: Null");
             showTextView("There was some communication issue. Please Try again!", BOT);
@@ -150,11 +180,15 @@ public class MainActivity extends AppCompatActivity {
     private void showTextView(String message, int type) {
         FrameLayout layout;
         switch (type) {
+
             case USER:
                 layout = getUserLayout();
                 break;
             case BOT:
                 layout = getBotLayout();
+                break;
+            case OPTIONS:
+                layout=getOptionsLayout();
                 break;
             default:
                 layout = getBotLayout();
@@ -162,8 +196,30 @@ public class MainActivity extends AppCompatActivity {
         }
         layout.setFocusableInTouchMode(true);
         chatLayout.addView(layout); // move focus to text view to automatically make it scroll up if softfocus
-        TextView tv = layout.findViewById(R.id.chatMsg);
-        tv.setText(message);
+        if(type != OPTIONS) {
+            TextView tv = layout.findViewById(R.id.chatMsg);
+            tv.setText(message);
+        } else {
+            TextView optionss = layout.findViewById(R.id.chatopt);
+            optionss.setOnClickListener(new View.OnClickListener(){
+                @Override
+
+                public void onClick(View v){
+                    String name= optionss.getText().toString();
+                    queryEditText.setText("");
+                    Log.d(TAG,"girdi");
+
+                    // Java V2
+                    QueryInput queryInput = QueryInput.newBuilder().setText(TextInput.newBuilder().setText(name).setLanguageCode("en-US")).build();
+                    new RequestJavaV2Task(MainActivity.this, session, sessionsClient, queryInput).execute();
+                }
+
+
+            });
+            optionss.setText(message.toLowerCase(Locale.ROOT));
+
+        }
+
         layout.requestFocus();
         queryEditText.requestFocus(); // change focus back to edit text to continue typing
     }
@@ -176,6 +232,10 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout getBotLayout() {
         LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
         return (FrameLayout) inflater.inflate(R.layout.bot_msg_layout, null);
+    }
+    FrameLayout getOptionsLayout() {
+        LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
+        return (FrameLayout) inflater.inflate(R.layout.bot_options_layout, null);
     }
 
 }

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
+    android:elevation="4dp"
     android:minHeight="?android:attr/actionBarSize"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
@@ -33,7 +34,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
 
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="@font/poppins_bold"
         android:paddingLeft="7dp"
         android:paddingBottom="7dp"
         android:text="REDassistant"
