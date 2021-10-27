@@ -4,6 +4,10 @@ APK + presentation video + cover photo
 
 https://drive.google.com/drive/folders/1YJ0tZZnT6PagNakcJZv7w_jSU7SVXKnE
 
+![alt text](https://github.com/conztantinee/JunctionXBudapest/blob/master/GitHub%20images/Screen%20Shot%202021-10-27%20at%207.29.31%20PM.png)
+![alt text](https://github.com/conztantinee/JunctionXBudapest/blob/master/GitHub%20images/Screen%20Shot%202021-10-27%20at%207.30.36%20PM.png)
+![alt text](https://github.com/conztantinee/JunctionXBudapest/blob/master/GitHub%20images/Screen%20Shot%202021-10-27%20at%207.31.01%20PM.png)
+
 Our project was mainly addressing the load issue of customer services of Vodafone.
 We decided that we can digitalize most of the operations and information provided by conventional customer services.
 For that we decided to create a online customer service in which customer can communicate with A.İ bot trained in solving customer problems.
